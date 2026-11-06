@@ -1,0 +1,57 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Que las secciones no queden tapadas por el navbar fijo */
+section[id] {
+    scroll-margin-top: 72px;
+}
+
+/* Navbar */
+.navbar-main {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-main .navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-main .brand-mark {
+    color: var(--bs-primary, #0d6efd);
+    font-weight: 400;
+}
+
+.navbar-main .nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* Subrayado animado al pasar el mouse */
+.navbar-main .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.25rem;
+    height: 2px;
+    background-color: var(--bs-primary, #0d6efd);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.navbar-main .nav-link:hover::after,
+.navbar-main .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.navbar-main .nav-link:hover,
+.navbar-main .nav-link.active {
+    color: var(--bs-primary, #0d6efd);
+}
